@@ -1,3 +1,5 @@
+#include <LiquidCrystal.h>
+
 #define BAUD_DURATION          100              //mSec
 #define INTERBAUD_DURATION     BAUD_DURATION*1
 #define INTERLETTER_DURATION   BAUD_DURATION*2    //extra time after a baud
@@ -14,6 +16,8 @@ enum{
 int dit,dah;
 int state;
 
+LiquidCrystal lcd(7,8,9,10,11,12);
+
 // the setup function runs once when you press reset or power the board
 void setup() {
   // initialize digital pin LED_BUILTIN as an output.
@@ -21,6 +25,10 @@ void setup() {
   pinMode(A1, INPUT);
   pinMode(A2, INPUT);
   digitalWrite(LED_BUILTIN, LOW);
+  lcd.begin(16,2);
+  lcd.print("W7GE Keyer");
+  lcd.setCursor(3,1);
+  lcd.print("Welcome!");
 }
 
 void readDit(){
