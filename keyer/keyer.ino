@@ -26,9 +26,11 @@ void setup() {
   pinMode(A2, INPUT);
   digitalWrite(LED_BUILTIN, LOW);
   lcd.begin(16,2);
+  lcd.setCursor(3,0);
   lcd.print("W7GE Keyer");
-  lcd.setCursor(3,1);
+  lcd.setCursor(4,1);
   lcd.print("Welcome!");
+  delay(2000);
 }
 
 void readDit(){
